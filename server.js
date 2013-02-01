@@ -24,9 +24,16 @@ app.post("/customerprofile", function(request, response) {
 	console.log(request.body.card);
 	console.log(request.body.port);
 
+	if (card === "BADCARD") {
+		response.send(500, {
+			status: "BADCARD"
+		});
+
+		return;
+	}
+
 	response.send(200, {
 		status: "OK",
-		request: request
 	});
 });
 
