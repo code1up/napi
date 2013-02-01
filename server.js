@@ -23,10 +23,13 @@ app.post("/customerprofile", function(request, response) {
 
 	console.dir(request);
 
-	card = request.body.card;
-	port = request.body.port;
+	var originalRequest = {
+		card: request.body.card,
+		port: request.body.port,
+		correlationId: request.body.correlationId
+	};
 
-	if (card === "BADCARD") {
+	if (originalRequest.card === "BADCARD") {
 		response.send(400, {
 			status: "BADCARD"
 		});
@@ -36,10 +39,7 @@ app.post("/customerprofile", function(request, response) {
 
 	response.send(200, {
 		status: "OK",
-		originalRequest: {
-			card: card,
-			port: port
-		}
+		originalRequest: originalRequest
 	});
 });
 
