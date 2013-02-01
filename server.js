@@ -21,11 +21,13 @@ app.get("/", function(request, response) {
 app.post("/customerprofile", function(request, response) {
 	response.header("content-type", "application/json");
 
-	console.log(request.body.card);
-	console.log(request.body.port);
+	console.dir(request);
+
+	card = request.body.card;
+	port = request.body.port;
 
 	if (card === "BADCARD") {
-		response.send(500, {
+		response.send(400, {
 			status: "BADCARD"
 		});
 
@@ -34,6 +36,10 @@ app.post("/customerprofile", function(request, response) {
 
 	response.send(200, {
 		status: "OK",
+		response: {
+			card: card,
+			port: port
+		}
 	});
 });
 
