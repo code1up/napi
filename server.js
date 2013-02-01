@@ -36,7 +36,7 @@ app.post("/customerprofile", function(request, response) {
 
 	response.send(200, {
 		status: "OK",
-		response: {
+		originalRequest: {
 			card: card,
 			port: port
 		}
