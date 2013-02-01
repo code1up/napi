@@ -18,6 +18,18 @@ app.get("/", function(request, response) {
 	});
 });
 
+app.post("/customerprofile", function(request, response) {
+	response.header("content-type", "application/json");
+
+	console.log(request.body.card);
+	console.log(request.body.port);
+
+	response.send(200, {
+		status: "OK",
+		request: request
+	});
+});
+
 var port = process.env.PORT || 3000;
 
 app.listen(port, function() {
