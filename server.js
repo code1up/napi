@@ -24,14 +24,18 @@ app.post("/customerprofile", function(request, response) {
 	console.dir(request);
 
 	var originalRequest = {
-		card: request.body.card,
+		device: request.body.device,
 		port: request.body.port,
-		correlationId: request.body.correlationId
+		profile: request.body.profile,
+		userid: request.body.userid,
+		linemode: request.body.linemode,
+		inp_down: request.body.inp_down,
+		inp_up: request.body.inp_up
 	};
 
-	if (originalRequest.card === "BADCARD") {
+	if (originalRequest.userid === "BADUSER") {
 		response.send(400, {
-			status: "BADCARD"
+			status: "BADUSER"
 		});
 
 		return;
