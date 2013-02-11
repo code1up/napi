@@ -42,7 +42,7 @@ app.post("/customerprofile", function(request, response) {
 	}
 
 	response.send(200, {
-		status: "OK",
+		status: "YAY",
 		originalRequest: originalRequest
 	});
 });
