@@ -34,8 +34,9 @@ app.post("/customerprofile", function(request, response) {
 	};
 
 	if (originalRequest.userid === "BADUSER") {
-		response.send(400, {
-			status: "BADUSER"
+		response.send(200, {
+			status: "ERROR",
+			statusMessage: "Something wonderful happened."
 		});
 
 		return;
@@ -43,6 +44,7 @@ app.post("/customerprofile", function(request, response) {
 
 	response.send(200, {
 		status: "OK",
+		statusMessage: "Customer profile successfully provisioned on exchange.",
 		originalRequest: originalRequest
 	});
 });
