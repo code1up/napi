@@ -33,10 +33,19 @@ app.post("/customerprofile", function(request, response) {
 		inp_up: request.body.inp_up
 	};
 
-	if (originalRequest.userid === "BADUSER") {
+	if (originalRequest.profile.indexof(".HI") !== -1) {
 		response.send(200, {
 			status: "ERROR",
-			statusMessage: "Something wonderful happened."
+			statusMessage: "Invalid profile name."
+		});
+
+		return;
+	}
+
+	if (originalRequest.device.indexof("bt-mrknu") !== -1) {
+		response.send(200, {
+			status: "ERROR",
+			statusMessage: "Unknown exchange code."
 		});
 
 		return;
