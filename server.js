@@ -18,7 +18,7 @@ app.get("/", function(request, response) {
 	});
 });
 
-app.post("/customerprofile", function(request, response) {
+app.post("/provision/xdsl/line", function(request, response) {
 	response.header("content-type", "application/json");
 
 	console.dir(request);
