@@ -33,7 +33,7 @@ app.post("/customerprofile", function(request, response) {
 		inp_up: request.body.inp_up
 	};
 
-	if (originalRequest.profile.indexof(".HI") !== -1) {
+	if (originalRequest.profile.indexOf(".HI") !== -1) {
 		response.send(200, {
 			status: "ERROR",
 			statusMessage: "Invalid profile name."
@@ -42,7 +42,7 @@ app.post("/customerprofile", function(request, response) {
 		return;
 	}
 
-	if (originalRequest.device.indexof("bt-mrknu") !== -1) {
+	if (originalRequest.device.indexOf("bt-mrknu") !== -1) {
 		response.send(200, {
 			status: "ERROR",
 			statusMessage: "Unknown exchange code."
